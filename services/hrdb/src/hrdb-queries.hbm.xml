@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <sql-query name="EmployeeListOf_DeptId1">
+    <![CDATA[
+      select e.*,d.Name from Employee e,Department d where e.DEPTID = d.DEPTID and e.DEPTID = 1
+    ]]>
+  </sql-query>
+  <sql-query name="EmployeeListOf_DeptId2">
+    <![CDATA[
+      select e.*,d.Name from Employee e,Department d where e.DEPTID = d.DEPTID and e.DEPTID = 2
+    ]]>
+  </sql-query>
+  <sql-query name="Srv_Var_EmployeeCount">
+    <![CDATA[
+      SELECT COUNT(eid) FROM Employee
+    ]]>
+  </sql-query>
+  <sql-query name="TotalBudget">
+    <![CDATA[
+      SELECT SUM(budget) FROM department
+    ]]>
+  </sql-query>
+  <sql-query name="checking">
+    <![CDATA[
+      select * from employee
+    ]]>
+  </sql-query>
+  <sql-query name="EmploteeList">
+    <![CDATA[
+      select e.*,d.Name from Employee e,Department d where e.DEPTID = d.DEPTID and e.DEPTID = 4
+    ]]>
+  </sql-query>
+  <sql-query name="EmployeeListOf_DeptId5">
+    <![CDATA[
+      select e.*,d.Name from Employee e,Department d where e.DEPTID = d.DEPTID and e.DEPTID = 5
+    ]]>
+  </sql-query>
+  <sql-query name="EmployeeListOf_DeptId4">
+    <![CDATA[
+      select e.*,d.Name from Employee e,Department d where e.DEPTID = d.DEPTID and e.DEPTID = 4
+    ]]>
+  </sql-query>
+  <sql-query name="SearchEmployees">
+    <![CDATA[
+      select E.*,D.NAME from EMPLOYEE E,DEPARTMENT D where E.DEPTID=D.DEPTID
+    ]]>
+  </sql-query>
+  <sql-query name="NoOfDepartment">
+    <![CDATA[
+      SELECT COUNT(NAME) FROM DEPARTMENT
+    ]]>
+  </sql-query>
+  <sql-query name="SelectEmployeeVar">
+    <![CDATA[
+      select * from Employee E where eid=:SearchID or eid=:LiveListID
+    ]]>
+  </sql-query>
+  <sql-query name="SelectEmployee">
+    <![CDATA[
+      select * from Employee E where eid=:SearchID or eid=:LiveListID
+    ]]>
+  </sql-query>
+  <sql-query name="EmployeeListOf_Deptid3">
+    <![CDATA[
+      select e.*,d.Name from Employee e,Department d where e.DEPTID = d.DEPTID and e.DEPTID = 3
+    ]]>
+  </sql-query>
+  <sql-query name="_ColleagueDetails">
+    <![CDATA[
+      select e.*,d.Name from Employee e,Department d where e.DEPTID = d.DEPTID and e.DEPTID =:selectedemployeedeptid AND e.EID !=:selectedemployeeid
+    ]]>
+  </sql-query>
+  <sql-query name="EmployeeSelectVar">
+    <![CDATA[
+      select * from employee where eid=:SelectedEmployee
+    ]]>
+  </sql-query>
+  <sql-query name="DepartmentCount">
+    <![CDATA[
+      SELECT COUNT(NAME) FROM DEPARTMENT
+    ]]>
+  </sql-query>
+</hibernate-mapping>
