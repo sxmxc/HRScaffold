@@ -32,9 +32,12 @@
           p:privilegeSpawnedThreads="true"
             />
 
+    <bean id="hrdbEntityInterceptor" class="com.wavemaker.runtime.data.interceptors.WMEntityInterceptor"/>
+
     <bean id="hrdbSessionFactory" class="com.wavemaker.runtime.data.factory.TypeResolverSessionFactoryBean">
         <property name="dataSource" ref="hrdbDataSource"/>
         <property name="packagesToScan" value="com.hrdb"/>
+        <property name="entityInterceptor" ref="hrdbEntityInterceptor"/>
         <property name="mappingResources">
             <list>
                 <value>
@@ -42,6 +45,7 @@
                 </value>
             </list>
         </property>
+
         <property name="customTypes">
             <array value-type="com.wavemaker.runtime.data.CustomType">
                 <ref bean="dateTimeCustomType"/>
@@ -51,6 +55,9 @@
             <props>
                 <prop key="hibernate.dialect">
                 ${hrdb.dialect}
+                </prop>
+                <prop key="hibernate.default_schema">
+                ${hrdb.schemaName}
                 </prop>
                 <prop key="hibernate.show_sql">
                     false
@@ -63,6 +70,9 @@
                 </prop>
                 <prop key="hibernate.temp.use_jdbc_metadata_defaults">
                     false
+                </prop>
+                <prop key="hibernate.schema_update.unique_constraint_strategy">
+                    skip
                 </prop>
             </props>
         </property>

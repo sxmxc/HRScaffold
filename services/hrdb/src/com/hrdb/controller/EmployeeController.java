@@ -20,23 +20,22 @@ import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.ExportType;
 import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
+import com.wavemaker.tools.api.core.models.AccessSpecifier;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import com.hrdb.Employee;
 import com.hrdb.Vacation;
 import com.hrdb.service.EmployeeService;
-import com.hrdb.service.VacationService;
-import com.wordnik.swagger.annotations.*;
-import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
-import com.wavemaker.tools.api.core.models.AccessSpecifier;
 
 /**
  * Controller object for domain model class Employee.
  * @see Employee
  */
 @RestController("hrdb.EmployeeController")
+@Api(value = "EmployeeController", description = "Exposes APIs to work with Employee resource.")
 @RequestMapping("/hrdb/Employee")
-@Api(description = "Exposes APIs to work with Employee resource.", value = "EmployeeController")
 public class EmployeeController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
@@ -45,53 +44,95 @@ public class EmployeeController {
     @Qualifier("hrdb.EmployeeService")
     private EmployeeService employeeService;
 
-    @Autowired
-    @Qualifier("hrdb.VacationService")
-    private VacationService vacationService;
+    @ApiOperation(value = "Creates a new Employee instance.")
+    @RequestMapping(method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Employee createEmployee(@RequestBody Employee employee) {
+        LOGGER.debug("Create Employee with information: {}", employee);
+        employee = employeeService.create(employee);
+        LOGGER.debug("Created Employee with information: {}", employee);
+        return employee;
+    }
+
+    @ApiOperation(value = "Returns the Employee instance associated with the given id.")
+    @RequestMapping(value = "/{id:.+}", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Employee getEmployee(@PathVariable("id") Integer id) throws EntityNotFoundException {
+        LOGGER.debug("Getting Employee with id: {}", id);
+        Employee foundEmployee = employeeService.getById(id);
+        LOGGER.debug("Employee details with id: {}", foundEmployee);
+        return foundEmployee;
+    }
+
+    @ApiOperation(value = "Updates the Employee instance associated with the given id.")
+    @RequestMapping(value = "/{id:.+}", method = RequestMethod.PUT)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Employee editEmployee(@PathVariable("id") Integer id, @RequestBody Employee employee) throws EntityNotFoundException {
+        LOGGER.debug("Editing Employee with id: {}", employee.getEid());
+        employee.setEid(id);
+        employee = employeeService.update(employee);
+        LOGGER.debug("Employee details with id: {}", employee);
+        return employee;
+    }
+
+    @ApiOperation(value = "Deletes the Employee instance associated with the given id.")
+    @RequestMapping(value = "/{id:.+}", method = RequestMethod.DELETE)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public boolean deleteEmployee(@PathVariable("id") Integer id) throws EntityNotFoundException {
+        LOGGER.debug("Deleting Employee with id: {}", id);
+        Employee deletedEmployee = employeeService.delete(id);
+        return deletedEmployee != null;
+    }
 
     /**
-     * @deprecated Use {@link #findEmployees(String)} instead.
+     * @deprecated Use {@link #findEmployees(String, Pageable)} instead.
      */
     @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ApiOperation(value = "Returns the list of Employee instances matching the search criteria.")
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     public Page<Employee> searchEmployeesByQueryFilters(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
         LOGGER.debug("Rendering Employees list");
         return employeeService.findAll(queryFilters, pageable);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Returns the list of Employee instances matching the search criteria.")
-    public Page<Employee> findEmployees(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+    @RequestMapping(method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Employee> findEmployees(@ApiParam("") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
         LOGGER.debug("Rendering Employees list");
         return employeeService.findAll(query, pageable);
     }
 
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
     @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportEmployees(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Downloadable exportEmployees(@PathVariable("exportType") ExportType exportType, @ApiParam("") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
         return employeeService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
     @ApiOperation(value = "Returns the total count of Employee instances.")
-    public Long countEmployees(@RequestParam(value = "q", required = false) String query) {
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Long countEmployees(@ApiParam("") @RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting Employees");
         return employeeService.count(query);
     }
 
-    @RequestMapping(value = "/{id:.+}/employeesForManagerid", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/employeesForManagerid", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the employeesForManagerid instance associated with the given id.")
-    public Page<Employee> findAssociatedEmployeesForManagerid(Pageable pageable, @PathVariable("id") Integer id) {
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Employee> findAssociatedEmployeesForManagerid(@PathVariable("id") Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated employeesForManagerid");
-        return employeeService.findAssociatedValues(id, "Employee", "eid", pageable);
+        return employeeService.findAssociatedEmployeesForManagerid(id, pageable);
     }
 
-    @RequestMapping(value = "/{id:.+}/vacations", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/vacations", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the vacations instance associated with the given id.")
-    public Page<Vacation> findAssociatedVacations(Pageable pageable, @PathVariable("id") Integer id) {
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Vacation> findAssociatedVacations(@PathVariable("id") Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated vacations");
-        return vacationService.findAssociatedValues(id, "Vacation", "eid", pageable);
+        return employeeService.findAssociatedVacations(id, pageable);
     }
 
     /**
@@ -101,54 +142,5 @@ public class EmployeeController {
 	 */
     protected void setEmployeeService(EmployeeService service) {
         this.employeeService = service;
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service VacationService instance
-	 */
-    protected void setVacationService(VacationService service) {
-        this.vacationService = service;
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Creates a new Employee instance.")
-    public Employee createEmployee(@RequestBody Employee employee) {
-        LOGGER.debug("Create Employee with information: {}", employee);
-        employee = employeeService.create(employee);
-        LOGGER.debug("Created Employee with information: {}", employee);
-        return employee;
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Returns the Employee instance associated with the given id.")
-    public Employee getEmployee(@PathVariable(value = "id") Integer id) throws EntityNotFoundException {
-        LOGGER.debug("Getting Employee with id: {}", id);
-        Employee foundEmployee = employeeService.getById(id);
-        LOGGER.debug("Employee details with id: {}", foundEmployee);
-        return foundEmployee;
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Updates the Employee instance associated with the given id.")
-    public Employee editEmployee(@PathVariable(value = "id") Integer id, @RequestBody Employee employee) throws EntityNotFoundException {
-        LOGGER.debug("Editing Employee with id: {}", employee.getEid());
-        employee.setEid(id);
-        employee = employeeService.update(employee);
-        LOGGER.debug("Employee details with id: {}", employee);
-        return employee;
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Deletes the Employee instance associated with the given id.")
-    public boolean deleteEmployee(@PathVariable(value = "id") Integer id) throws EntityNotFoundException {
-        LOGGER.debug("Deleting Employee with id: {}", id);
-        Employee deletedEmployee = employeeService.delete(id);
-        return deletedEmployee != null;
     }
 }

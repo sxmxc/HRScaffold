@@ -6,9 +6,16 @@
   "tables" : [ {
     "catalog" : "PUBLIC",
     "columns" : [ {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "eid",
       "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "EID",
@@ -17,17 +24,23 @@
       "partOfAnyRelation" : true,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : true,
-      "precision" : 10,
+      "partOfUniqueKey" : true,
+      "precision" : 19,
       "primaryKey" : true,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : true,
-      "generatorType" : "identity"
+      "unique" : true
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "firstname",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "FIRSTNAME",
@@ -36,17 +49,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "lastname",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "LASTNAME",
@@ -55,17 +74,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "street",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "STREET",
@@ -74,17 +99,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "city",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "CITY",
@@ -93,17 +124,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "state",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 2,
       "name" : "STATE",
@@ -112,17 +149,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "zip",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "ZIP",
@@ -131,17 +174,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "birthdate",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "date",
       "length" : 10,
       "name" : "BIRTHDATE",
@@ -150,17 +199,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "date",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "picurl",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "PICURL",
@@ -169,17 +224,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "jobtitle",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 40,
       "name" : "JOBTITLE",
@@ -188,36 +249,48 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "deptid",
       "foreignKey" : true,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "DEPTID",
-      "nullable" : true,
+      "nullable" : false,
       "oldName" : "DEPTID",
       "partOfAnyRelation" : true,
       "partOfForeignKey" : true,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "managerid",
       "foreignKey" : true,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "MANAGERID",
@@ -226,17 +299,23 @@
       "partOfAnyRelation" : true,
       "partOfForeignKey" : true,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "tenantid",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "TENANTID",
@@ -245,31 +324,31 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "Employee",
     "fullyQualifiedName" : "com.hrdb.Employee",
     "name" : "EMPLOYEE",
-    "oldName" : "EMPLOYEE",
+    "oldName" : null,
     "primaryKey" : {
       "columns" : [ "EID" ],
       "composite" : false,
-      "name" : "SYS_PK_10096",
-      "virtual" : false,
       "generator" : {
         "generatorType" : "identity",
         "generatorValue" : null
-      }
+      },
+      "name" : "GENERATED_PK_EMPLOYEE_EID",
+      "virtual" : false
     },
     "relations" : [ {
       "cardinality" : "ManyToOne",
+      "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "department",
       "mappings" : [ {
@@ -279,11 +358,14 @@
       "name" : "DEPTFKEY",
       "primary" : true,
       "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
       "sourceTable" : "EMPLOYEE",
+      "targetColumnsUniqueKey" : false,
       "targetTable" : "DEPARTMENT",
       "virtual" : false
     }, {
       "cardinality" : "ManyToOne",
+      "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "employeeByManagerid",
       "mappings" : [ {
@@ -293,11 +375,14 @@
       "name" : "MGRFKEY",
       "primary" : true,
       "selfRelation" : true,
+      "sourceColumnsNotUniqueKey" : true,
       "sourceTable" : "EMPLOYEE",
+      "targetColumnsUniqueKey" : false,
       "targetTable" : "EMPLOYEE",
       "virtual" : false
     }, {
       "cardinality" : "OneToMany",
+      "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "employeesForManagerid",
       "mappings" : [ {
@@ -307,11 +392,14 @@
       "name" : "MGRFKEY",
       "primary" : false,
       "selfRelation" : true,
+      "sourceColumnsNotUniqueKey" : true,
       "sourceTable" : "EMPLOYEE",
+      "targetColumnsUniqueKey" : false,
       "targetTable" : "EMPLOYEE",
       "virtual" : false
     }, {
       "cardinality" : "OneToMany",
+      "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "vacations",
       "mappings" : [ {
@@ -321,7 +409,9 @@
       "name" : "EMPFKEY",
       "primary" : false,
       "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
       "sourceTable" : "EMPLOYEE",
+      "targetColumnsUniqueKey" : false,
       "targetTable" : "VACATION",
       "virtual" : false
     } ],
@@ -330,9 +420,16 @@
   }, {
     "catalog" : "PUBLIC",
     "columns" : [ {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "id",
       "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "ID",
@@ -341,17 +438,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : true,
-      "precision" : 10,
+      "partOfUniqueKey" : true,
+      "precision" : 19,
       "primaryKey" : true,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : true,
-      "generatorType" : "identity"
+      "unique" : true
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "startdate",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "date",
       "length" : 10,
       "name" : "STARTDATE",
@@ -360,17 +463,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "date",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "enddate",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "date",
       "length" : 10,
       "name" : "ENDDATE",
@@ -379,17 +488,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "date",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "empid",
       "foreignKey" : true,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "EMPID",
@@ -398,17 +513,23 @@
       "partOfAnyRelation" : true,
       "partOfForeignKey" : true,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "tenantid",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "TENANTID",
@@ -417,31 +538,31 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "Vacation",
     "fullyQualifiedName" : "com.hrdb.Vacation",
     "name" : "VACATION",
-    "oldName" : "VACATION",
+    "oldName" : null,
     "primaryKey" : {
       "columns" : [ "ID" ],
       "composite" : false,
-      "name" : "SYS_PK_10104",
-      "virtual" : false,
       "generator" : {
         "generatorType" : "identity",
         "generatorValue" : null
-      }
+      },
+      "name" : "GENERATED_PK_VACATION_ID",
+      "virtual" : false
     },
     "relations" : [ {
       "cardinality" : "ManyToOne",
+      "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "employee",
       "mappings" : [ {
@@ -451,7 +572,9 @@
       "name" : "EMPFKEY",
       "primary" : true,
       "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
       "sourceTable" : "VACATION",
+      "targetColumnsUniqueKey" : false,
       "targetTable" : "EMPLOYEE",
       "virtual" : false
     } ],
@@ -460,9 +583,16 @@
   }, {
     "catalog" : "PUBLIC",
     "columns" : [ {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "deptid",
       "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "DEPTID",
@@ -471,17 +601,23 @@
       "partOfAnyRelation" : true,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : true,
-      "precision" : 10,
+      "partOfUniqueKey" : true,
+      "precision" : 19,
       "primaryKey" : true,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : true,
-      "generatorType" : "identity"
+      "unique" : true
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "name",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "NAME",
@@ -490,17 +626,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "budget",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "BUDGET",
@@ -509,17 +651,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "q1",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "Q1",
@@ -528,17 +676,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "q2",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "Q2",
@@ -547,17 +701,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "q3",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "Q3",
@@ -566,17 +726,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "q4",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "Q4",
@@ -585,17 +751,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "deptcode",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 20,
       "name" : "DEPTCODE",
@@ -604,17 +776,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "location",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 255,
       "name" : "LOCATION",
@@ -623,17 +801,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "tenantid",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "TENANTID",
@@ -642,31 +826,31 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "Department",
     "fullyQualifiedName" : "com.hrdb.Department",
     "name" : "DEPARTMENT",
-    "oldName" : "DEPARTMENT",
+    "oldName" : null,
     "primaryKey" : {
       "columns" : [ "DEPTID" ],
       "composite" : false,
-      "name" : "SYS_PK_10092",
-      "virtual" : false,
       "generator" : {
         "generatorType" : "identity",
         "generatorValue" : null
-      }
+      },
+      "name" : "GENERATED_PK_DEPARTMENT_DEPTID",
+      "virtual" : false
     },
     "relations" : [ {
       "cardinality" : "OneToMany",
+      "columnsUniqueKey" : false,
       "composite" : false,
       "fieldName" : "employees",
       "mappings" : [ {
@@ -676,7 +860,9 @@
       "name" : "DEPTFKEY",
       "primary" : false,
       "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
       "sourceTable" : "DEPARTMENT",
+      "targetColumnsUniqueKey" : false,
       "targetTable" : "EMPLOYEE",
       "virtual" : false
     } ],
@@ -685,9 +871,16 @@
   }, {
     "catalog" : "PUBLIC",
     "columns" : [ {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "userid",
       "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "USERID",
@@ -696,17 +889,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : true,
-      "precision" : 10,
+      "partOfUniqueKey" : true,
+      "precision" : 19,
       "primaryKey" : true,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : true,
-      "generatorType" : "identity"
+      "unique" : true
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "username",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 20,
       "name" : "USERNAME",
@@ -715,17 +914,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "password",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 20,
       "name" : "PASSWORD",
@@ -734,17 +939,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "role",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "string",
       "length" : 20,
       "name" : "ROLE",
@@ -753,17 +964,23 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 19,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "string",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     }, {
-      "defaultValue" : null,
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null
+      },
       "fieldName" : "tenantid",
       "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
       "javaType" : "integer",
       "length" : 255,
       "name" : "TENANTID",
@@ -772,28 +989,27 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,
-      "precision" : 10,
+      "partOfUniqueKey" : false,
+      "precision" : 19,
       "primaryKey" : false,
       "scale" : 0,
-      "sequenceName" : null,
       "sqlType" : "number",
-      "unique" : false,
-      "generatorType" : "identity"
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "User",
     "fullyQualifiedName" : "com.hrdb.User",
     "name" : "USER",
-    "oldName" : "USER",
+    "oldName" : null,
     "primaryKey" : {
       "columns" : [ "USERID" ],
       "composite" : false,
-      "name" : "SYS_PK_10112",
-      "virtual" : false,
       "generator" : {
         "generatorType" : "identity",
         "generatorValue" : null
-      }
+      },
+      "name" : "GENERATED_PK_USER_USERID",
+      "virtual" : false
     },
     "relations" : [ ],
     "schema" : "PUBLIC",

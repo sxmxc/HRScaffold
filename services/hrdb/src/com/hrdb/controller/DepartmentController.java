@@ -20,23 +20,22 @@ import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.ExportType;
 import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
+import com.wavemaker.tools.api.core.models.AccessSpecifier;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import com.hrdb.Department;
 import com.hrdb.Employee;
 import com.hrdb.service.DepartmentService;
-import com.hrdb.service.EmployeeService;
-import com.wordnik.swagger.annotations.*;
-import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
-import com.wavemaker.tools.api.core.models.AccessSpecifier;
 
 /**
  * Controller object for domain model class Department.
  * @see Department
  */
 @RestController("hrdb.DepartmentController")
+@Api(value = "DepartmentController", description = "Exposes APIs to work with Department resource.")
 @RequestMapping("/hrdb/Department")
-@Api(description = "Exposes APIs to work with Department resource.", value = "DepartmentController")
 public class DepartmentController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
@@ -45,46 +44,87 @@ public class DepartmentController {
     @Qualifier("hrdb.DepartmentService")
     private DepartmentService departmentService;
 
-    @Autowired
-    @Qualifier("hrdb.EmployeeService")
-    private EmployeeService employeeService;
+    @ApiOperation(value = "Creates a new Department instance.")
+    @RequestMapping(method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Department createDepartment(@RequestBody Department department) {
+        LOGGER.debug("Create Department with information: {}", department);
+        department = departmentService.create(department);
+        LOGGER.debug("Created Department with information: {}", department);
+        return department;
+    }
+
+    @ApiOperation(value = "Returns the Department instance associated with the given id.")
+    @RequestMapping(value = "/{id:.+}", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Department getDepartment(@PathVariable("id") Integer id) throws EntityNotFoundException {
+        LOGGER.debug("Getting Department with id: {}", id);
+        Department foundDepartment = departmentService.getById(id);
+        LOGGER.debug("Department details with id: {}", foundDepartment);
+        return foundDepartment;
+    }
+
+    @ApiOperation(value = "Updates the Department instance associated with the given id.")
+    @RequestMapping(value = "/{id:.+}", method = RequestMethod.PUT)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Department editDepartment(@PathVariable("id") Integer id, @RequestBody Department department) throws EntityNotFoundException {
+        LOGGER.debug("Editing Department with id: {}", department.getDeptid());
+        department.setDeptid(id);
+        department = departmentService.update(department);
+        LOGGER.debug("Department details with id: {}", department);
+        return department;
+    }
+
+    @ApiOperation(value = "Deletes the Department instance associated with the given id.")
+    @RequestMapping(value = "/{id:.+}", method = RequestMethod.DELETE)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public boolean deleteDepartment(@PathVariable("id") Integer id) throws EntityNotFoundException {
+        LOGGER.debug("Deleting Department with id: {}", id);
+        Department deletedDepartment = departmentService.delete(id);
+        return deletedDepartment != null;
+    }
 
     /**
-     * @deprecated Use {@link #findDepartments(String)} instead.
+     * @deprecated Use {@link #findDepartments(String, Pageable)} instead.
      */
     @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ApiOperation(value = "Returns the list of Department instances matching the search criteria.")
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     public Page<Department> searchDepartmentsByQueryFilters(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
         LOGGER.debug("Rendering Departments list");
         return departmentService.findAll(queryFilters, pageable);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Returns the list of Department instances matching the search criteria.")
-    public Page<Department> findDepartments(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+    @RequestMapping(method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Department> findDepartments(@ApiParam("") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
         LOGGER.debug("Rendering Departments list");
         return departmentService.findAll(query, pageable);
     }
 
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
     @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportDepartments(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Downloadable exportDepartments(@PathVariable("exportType") ExportType exportType, @ApiParam("") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
         return departmentService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
     @ApiOperation(value = "Returns the total count of Department instances.")
-    public Long countDepartments(@RequestParam(value = "q", required = false) String query) {
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Long countDepartments(@ApiParam("") @RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting Departments");
         return departmentService.count(query);
     }
 
-    @RequestMapping(value = "/{id:.+}/employees", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/employees", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the employees instance associated with the given id.")
-    public Page<Employee> findAssociatedEmployees(Pageable pageable, @PathVariable("id") Integer id) {
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Employee> findAssociatedEmployees(@PathVariable("id") Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated employees");
-        return employeeService.findAssociatedValues(id, "Employee", "deptid", pageable);
+        return departmentService.findAssociatedEmployees(id, pageable);
     }
 
     /**
@@ -94,54 +134,5 @@ public class DepartmentController {
 	 */
     protected void setDepartmentService(DepartmentService service) {
         this.departmentService = service;
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service EmployeeService instance
-	 */
-    protected void setEmployeeService(EmployeeService service) {
-        this.employeeService = service;
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Creates a new Department instance.")
-    public Department createDepartment(@RequestBody Department department) {
-        LOGGER.debug("Create Department with information: {}", department);
-        department = departmentService.create(department);
-        LOGGER.debug("Created Department with information: {}", department);
-        return department;
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Returns the Department instance associated with the given id.")
-    public Department getDepartment(@PathVariable(value = "id") Integer id) throws EntityNotFoundException {
-        LOGGER.debug("Getting Department with id: {}", id);
-        Department foundDepartment = departmentService.getById(id);
-        LOGGER.debug("Department details with id: {}", foundDepartment);
-        return foundDepartment;
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Updates the Department instance associated with the given id.")
-    public Department editDepartment(@PathVariable(value = "id") Integer id, @RequestBody Department department) throws EntityNotFoundException {
-        LOGGER.debug("Editing Department with id: {}", department.getDeptid());
-        department.setDeptid(id);
-        department = departmentService.update(department);
-        LOGGER.debug("Department details with id: {}", department);
-        return department;
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Deletes the Department instance associated with the given id.")
-    public boolean deleteDepartment(@PathVariable(value = "id") Integer id) throws EntityNotFoundException {
-        LOGGER.debug("Deleting Department with id: {}", id);
-        Department deletedDepartment = departmentService.delete(id);
-        return deletedDepartment != null;
     }
 }
