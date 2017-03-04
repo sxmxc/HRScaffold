@@ -1,6 +1,6 @@
 <wm-partial data-ng-controller="CommonPageController" name="CommonPage"> 
     <wm-view name="loginDialogView" class="dialog-view"> 
-        <wm-logindialog modal="true" name="CommonLoginDialog" on-error="CommonLoginDialogError($event, $scope)" on-success="CommonLoginDialogSuccess($event, $scope)" title="Login" iconclass="glyphicon glyphicon-log-in">
+        <wm-logindialog modal="true" name="CommonLoginDialog" on-error="CommonLoginDialogError($event, $scope)" on-success="CommonLoginDialogSuccess($event, $scope)" title="Login" iconclass="glyphicon glyphicon-log-in"> 
             <wm-form class="panel-default" name="loginform"> 
                 <wm-message scopedataset="loginMessage" class="app-login-dialog-message" name="loginmessage"></wm-message> 
                 <wm-layoutgrid name="layoutgrid1"> 
@@ -25,7 +25,7 @@
                         </wm-gridcolumn> 
                     </wm-gridrow> 
                 </wm-layoutgrid> 
-            </wm-form>   
+            </wm-form> 
             <wm-dialogactions name="loginactions"> 
                 <wm-button class="btn-primary" caption="Sign in" name="loginbutton"></wm-button> 
             </wm-dialogactions> 

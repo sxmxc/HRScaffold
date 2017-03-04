@@ -1,18 +1,24 @@
-<wm-partial data-ng-controller="topnavPageController" name="topnav" type="top-nav"> 
-    <wm-navbar name="navbar1"> 
-        <wm-nav name="leftTopLinks" type="navbar" class="navbar-left"> 
-            <wm-nav-item name="list_home"> 
-                <wm-anchor on-click="Variables.goToPage_Main.invoke()" caption="Home" name="homeButton" iconclass="wi wi-home" class="active"></wm-anchor> 
-            </wm-nav-item> 
-            <wm-nav-item name="nav_item5"></wm-nav-item> 
-            <wm-nav-item name="nav_item6"></wm-nav-item> 
-            <wm-nav-item name="list_services"></wm-nav-item> 
-        </wm-nav> 
-        <wm-nav name="rightTopLinks" type="navbar" class="navbar-right"> 
-            <wm-nav-item name="list_home"></wm-nav-item> 
-            <wm-nav-item name="list_services"> 
-                <wm-anchor caption="Logout" name="logoutButton" iconclass="wi wi-sign-out" on-click="Variables.logoutVariable.invoke()"></wm-anchor> 
-            </wm-nav-item> 
-        </wm-nav> 
-    </wm-navbar> 
+<wm-partial data-ng-controller="topnavPageController" name="topnav" type="top-nav">
+    <wm-navbar name="navbar1">
+        <wm-nav name="leftTopLinks" type="navbar" class="navbar-left">
+            <wm-nav-item name="list_home">
+                <wm-anchor on-click="Variables.goToPage_Main.invoke()" caption="Home" name="homeButton" iconclass="wi wi-home" class="active"></wm-anchor>
+            </wm-nav-item>
+            <wm-nav-item name="nav_item5"></wm-nav-item>
+            <wm-nav-item name="nav_item6"></wm-nav-item>
+            <wm-nav-item name="list_services"></wm-nav-item>
+        </wm-nav>
+        <wm-nav name="rightTopLinks" type="navbar" class="navbar-right">
+            <wm-nav-item name="list_home"></wm-nav-item>
+            <wm-nav-item name="list_services">
+                <wm-anchor caption="bind:&quot;Logged in as: &quot; + Variables.loggedInUser.dataSet.name" name="user" iconclass="wi wi-account-circle"></wm-anchor>
+            </wm-nav-item>
+            <wm-nav-item name="nav_item8">
+                <wm-anchor name="anchor3" iconclass="wi wi-globe" caption="bind:&quot;Region: &quot; + (Variables.getCurrentUserRegion.dataSet.region | numberToString)"></wm-anchor>
+            </wm-nav-item>
+            <wm-nav-item name="nav_item9">
+                <wm-anchor name="anchor4" iconclass="wi wi-exit-to-app" caption="Logout" on-click="Variables.logoutVariable.invoke()"></wm-anchor>
+            </wm-nav-item>
+        </wm-nav>
+    </wm-navbar>
 </wm-partial>

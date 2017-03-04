@@ -17,12 +17,20 @@
   }, {
     "table" : "Employees",
     "schema" : null
+  }, {
+    "table" : "Regions",
+    "schema" : null
+  }, {
+    "table" : "Users",
+    "schema" : null
   } ],
   "schemaFilter" : [ ],
   "impersonateUser" : false,
   "activeDirectoryDomain" : null,
   "hbm2ddl" : "update",
   "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
   "dataSourceType" : "WM_MANAGED_DATASOURCE",
   "jndiName" : "",
   "reloadInfo" : {

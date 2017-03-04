@@ -59,8 +59,6 @@ Application.$controller("EmployeeGrid1Controller", ["$scope",
     }
 ]);
 
-
-
 Application.$controller("grid2Controller", ["$scope",
 	function($scope) {
 		"use strict";
@@ -68,7 +66,7 @@ Application.$controller("grid2Controller", ["$scope",
 	}
 ]);
 
-Application.$controller("liveform1Controller", ["$scope",
+Application.$controller("liveform2Controller", ["$scope",
 	function($scope) {
 		"use strict";
 		$scope.ctrlScope = $scope;

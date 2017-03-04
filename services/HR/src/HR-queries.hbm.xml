@@ -1,3 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping/>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="EmployeesByDepartment">
+        <![CDATA[
+        select * from Employees where department = :deptid
+        ]]>
+    <query-param name="deptid" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="EmployeesByDepartment__count">
+        <![CDATA[
+        select count(*) from (select * from Employees where department = :deptid) wmTempTable
+        ]]>
+    <query-param name="deptid" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getRegion">
+        <![CDATA[
+        select region from Users where username = :username
+        ]]>
+    <query-param name="username" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getRegion__count">
+        <![CDATA[
+        select count(*) from (select region from Users where username = :username) wmTempTable
+        ]]>
+    <query-param name="username" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="EmployeesByRegion">
+        <![CDATA[
+        Select * From Employees Where region = :regionid
+        ]]>
+    <query-param name="regionid" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="EmployeesByRegion__count">
+        <![CDATA[
+        select count(*) from (Select * From Employees Where region = :regionid) wmTempTable
+        ]]>
+    <query-param name="regionid" type="java.lang.Integer"/>
+    </sql-query>
+</hibernate-mapping>

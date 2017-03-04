@@ -1,40 +1,67 @@
 [ {
   "name" : "Common",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "Departments",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "EmployeeDetailDialog",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "EmployeeDetails",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "EmployeesView",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "regionid",
+    "type" : "integer"
+  } ]
 }, {
   "name" : "Login",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "Main",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "region",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "Regions",
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "Statistics",
-  "type" : "PAGE"
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Users",
+  "type" : "PAGE",
+  "params" : [ ]
 }, {
   "name" : "footer",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "header",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "leftnav",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "rightnav",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 }, {
   "name" : "topnav",
-  "type" : "PARTIAL"
+  "type" : "PARTIAL",
+  "params" : [ ]
 } ]

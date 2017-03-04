@@ -58,7 +58,7 @@ public class FileService {
      * on the server.
      * ********************************************************************************
      */
-    public class WMFile {
+    public static class WMFile {
         private String path;
         private String name;
         private long size;
@@ -108,7 +108,7 @@ public class FileService {
         The class returns filepath, name , boolean success tells whether the upload was successful or not
         and error message if the upload was not successful.
      */
-    public class FileUploadResponse {
+    public static class FileUploadResponse {
 
         private String path;
         private String fileName;

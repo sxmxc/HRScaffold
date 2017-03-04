@@ -1,40 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="HR" type="DataService" springFile="HR.spring.xml">
-    <dataobjects>
-        <dataobject javaType="com.hr_scaffold.hr.Department">
-            <element name="depid" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="employeeses" typeRef="com.hr_scaffold.hr.Employees" isList="true" allowNull="true"/>
-            <element name="name" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.hr_scaffold.hr.Employees">
-            <element name="birthdate" typeRef="java.util.Date" allowNull="true"/>
-            <element name="city" typeRef="java.lang.String" allowNull="true"/>
-            <element name="department" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="departmentByDepartment" typeRef="com.hr_scaffold.hr.Department" allowNull="true"/>
-            <element name="eid" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="firstname" typeRef="java.lang.String" allowNull="true"/>
-            <element name="jobtitle" typeRef="java.lang.String" allowNull="true"/>
-            <element name="lastname" typeRef="java.lang.String" allowNull="true"/>
-            <element name="manager" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="picurl" typeRef="java.lang.String" allowNull="true"/>
-            <element name="state" typeRef="java.lang.String" allowNull="true"/>
-            <element name="street" typeRef="java.lang.String" allowNull="true"/>
-            <element name="zip" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.wavemaker.runtime.data.expression.QueryFilter">
-            <element name="attributeName" typeRef="java.lang.String" allowNull="true"/>
-            <element name="attributeType" typeRef="java.lang.String" allowNull="true"/>
-            <element name="attributeValue" allowNull="true"/>
-            <element name="filterCondition" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.wavemaker.runtime.data.model.CustomProcedure">
-            <element name="procedureParams" typeRef="com.wavemaker.runtime.data.model.CustomProcedureParam" isList="true" allowNull="true"/>
-            <element name="procedureStr" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.wavemaker.runtime.data.model.CustomQuery">
-            <element name="nativeSql" typeRef="java.lang.Boolean" allowNull="true"/>
-            <element name="queryParams" typeRef="com.wavemaker.runtime.data.model.CustomQueryParam" isList="true" allowNull="true"/>
-            <element name="queryStr" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-    </dataobjects>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="HR" CRUDService="true" type="DataService" springFile="HR.spring.xml">
+    <dataobjects/>
 </service>

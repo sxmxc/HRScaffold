@@ -1,7 +1,7 @@
 {
-  "modelName" : "hrdb",
-  "entityName" : "User",
-  "tableName" : "USER",
+  "modelName" : "HR",
+  "entityName" : "Users",
+  "tableName" : "Users",
   "unamePropertyName" : "username",
   "unameColumnName" : "USERNAME",
   "uidPropertyName" : "userid",
@@ -11,9 +11,9 @@
   "rolePropertyName" : "",
   "roleColumnName" : "",
   "useRolesQuery" : true,
-  "rolesByUsernameQuery" : "SELECT USERID, ROLE FROM USER WHERE USERNAME = ?",
+  "rolesByUsernameQuery" : "SELECT ROLE FROM Users WHERE USERNAME = :LOGGED_IN_USERNAME",
   "tenantIdField" : null,
   "defTenantId" : 0,
   "tenantIdPropertyName" : null,
-  "queryType" : "SQL"
+  "queryType" : "NATIVE_SQL"
 }
