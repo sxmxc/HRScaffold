@@ -31,6 +31,10 @@ public interface HRQueryExecutorService {
 
     Downloadable exportEmployeesByRegion(ExportType exportType, Integer regionid, Pageable pageable);
 
+    Page<GetEmployeesByStatusResponse> executeGetEmployeesByStatus(String status, Pageable pageable);
+
+    Downloadable exportGetEmployeesByStatus(ExportType exportType, String status, Pageable pageable);
+
 }
 
 

@@ -1,12 +1,17 @@
 [ {
+  "urlPattern" : "/pages/AdminDashboard/**",
+  "permission" : "Role",
+  "roles" : [ "admin" ],
+  "httpMethod" : null
+}, {
   "urlPattern" : "/pages/Common/**",
   "permission" : "PermitAll",
   "roles" : [ ],
   "httpMethod" : null
 }, {
   "urlPattern" : "/pages/Departments/**",
-  "permission" : "Authenticated",
-  "roles" : [ ],
+  "permission" : "Role",
+  "roles" : [ "admin", "user" ],
   "httpMethod" : null
 }, {
   "urlPattern" : "/pages/EmployeeDetailDialog/**",
@@ -49,6 +54,11 @@
   "roles" : [ ],
   "httpMethod" : null
 }, {
+  "urlPattern" : "/pages/Regions/**",
+  "permission" : "Role",
+  "roles" : [ "admin", "user" ],
+  "httpMethod" : null
+}, {
   "urlPattern" : "/pages/rightnav/**",
   "permission" : "Authenticated",
   "roles" : [ ],
@@ -62,5 +72,10 @@
   "urlPattern" : "/pages/topnav/**",
   "permission" : "Authenticated",
   "roles" : [ ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/Users/**",
+  "permission" : "Role",
+  "roles" : [ "admin" ],
   "httpMethod" : null
 } ]

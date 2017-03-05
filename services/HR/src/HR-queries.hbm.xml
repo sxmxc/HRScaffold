@@ -57,4 +57,11 @@
         ]]>
     <query-param name="regionid" type="java.lang.Integer"/>
     </sql-query>
+
+    <sql-query name="getEmployeesByStatus">
+        <![CDATA[
+        select * from Employees where status = :status
+        ]]>
+    <query-param name="status" type="java.lang.String"/>
+    </sql-query>
 </hibernate-mapping>

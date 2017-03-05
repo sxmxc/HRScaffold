@@ -6,7 +6,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ {
       "target" : "region",
-      "value" : "bind:Widgets.select1.datavalue",
+      "value" : "bind:Variables.getCurrentUserRegion.dataSet.region",
       "type" : "number"
     } ],
     "operation" : "read",
@@ -310,7 +310,7 @@
       "primaryFields" : [ "eid" ]
     },
     "isDefault" : true,
-    "bindCount" : 7,
+    "bindCount" : 9,
     "tableName" : "Employees",
     "tableType" : "TABLE",
     "properties" : [ "regions", "departmentByDepartment", "employeeStatus" ],

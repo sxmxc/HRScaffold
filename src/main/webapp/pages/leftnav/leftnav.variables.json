@@ -1,1 +1,19 @@
-{ }
+{
+  "HiringMenu" : {
+    "_id" : "wm-HiringMenu-wm.Variable-1488747868555",
+    "name" : "HiringMenu",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "text" : "Screening",
+      "link" : "goToPage_Screening"
+    }, {
+      "text" : "Interviews",
+      "link" : "goToPage_Interviews"
+    } ],
+    "type" : "string",
+    "isList" : true,
+    "saveInPhonegap" : false
+  }
+}

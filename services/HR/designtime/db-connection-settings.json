@@ -12,7 +12,13 @@
   "port" : "",
   "schemaName" : null,
   "tableFilter" : [ {
+    "table" : "Candidates",
+    "schema" : null
+  }, {
     "table" : "Department",
+    "schema" : null
+  }, {
+    "table" : "EmployeeStatus",
     "schema" : null
   }, {
     "table" : "Employees",
@@ -24,7 +30,7 @@
     "table" : "Users",
     "schema" : null
   }, {
-    "table" : "EmployeeStatus",
+    "table" : "Interviews",
     "schema" : null
   } ],
   "schemaFilter" : [ ],

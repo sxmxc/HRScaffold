@@ -1,0 +1,133 @@
+{
+  "HR_CreateCandidate" : {
+    "_id" : "wm-HR_CreateCandidate-wm.LiveVariable-1488753733962",
+    "name" : "HR_CreateCandidate",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ {
+      "target" : "firstname",
+      "value" : "bind:Widgets.form2.formWidgets.Candidates_firstname.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "lastname",
+      "value" : "bind:Widgets.form2.formWidgets.Candidates_lastname.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "phonenumber",
+      "value" : "bind:Widgets.form2.formWidgets.Candidates_phonenumber.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "source",
+      "value" : "bind:Widgets.form2.formWidgets.Candidates_source.datavalue",
+      "type" : "string"
+    } ],
+    "operation" : "insert",
+    "dataSet" : [ ],
+    "type" : "Candidates",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeAll",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "transformationRequired" : false,
+    "liveSource" : "HR",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "orderBy" : "id asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "ID",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "firstname",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "FIRSTNAME",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "lastname",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "LASTNAME",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "phonenumber",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "PHONENUMBER",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "dateadded",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "DATEADDED",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "systemInserted" : true,
+        "systemUpdated" : true,
+        "scale" : 0
+      }, {
+        "fieldName" : "source",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "SOURCE",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      } ],
+      "entityName" : "Candidates",
+      "fullyQualifiedName" : "com.hr_scaffold.hr.Candidates",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "tableName" : "Candidates",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterFields" : { },
+    "inputFields" : { },
+    "package" : "com.hr_scaffold.hr.Candidates"
+  }
+}

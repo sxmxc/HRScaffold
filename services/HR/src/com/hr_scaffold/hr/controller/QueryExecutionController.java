@@ -111,6 +111,25 @@ public class QueryExecutionController {
         return queryService.exportEmployeesByRegion(exportType, regionid, pageable);
     }
 
+    @RequestMapping(value = "/queries/getEmployeesByStatus", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "returns employees with given status")
+    public Page<GetEmployeesByStatusResponse> executeGetEmployeesByStatus(@RequestParam(value = "status") String status, Pageable pageable) {
+        LOGGER.debug("Executing named query: getEmployeesByStatus");
+        Page<GetEmployeesByStatusResponse> _result = queryService.executeGetEmployeesByStatus(status, pageable);
+        LOGGER.debug("got the result for named query: getEmployeesByStatus, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file for query getEmployeesByStatus")
+    @RequestMapping(value = "/queries/getEmployeesByStatus/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Downloadable exportGetEmployeesByStatus(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "status") String status, Pageable pageable) {
+        LOGGER.debug("Exporting named query: getEmployeesByStatus");
+
+        return queryService.exportGetEmployeesByStatus(exportType, status, pageable);
+    }
+
 }
 
 

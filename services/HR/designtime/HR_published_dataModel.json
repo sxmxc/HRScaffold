@@ -12,6 +12,194 @@
         "updatable" : true,
         "defaultValue" : ""
       },
+      "fieldName" : "id",
+      "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "ID",
+      "nullable" : false,
+      "oldName" : "ID",
+      "partOfAnyRelation" : true,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : true,
+      "partOfUniqueKey" : true,
+      "precision" : 10,
+      "primaryKey" : true,
+      "scale" : 0,
+      "sqlType" : "number",
+      "unique" : true
+    }, {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
+      "fieldName" : "firstname",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "javaType" : "string",
+      "length" : 255,
+      "name" : "FIRSTNAME",
+      "nullable" : true,
+      "oldName" : "FIRSTNAME",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sqlType" : "string",
+      "unique" : false
+    }, {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
+      "fieldName" : "lastname",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "javaType" : "string",
+      "length" : 255,
+      "name" : "LASTNAME",
+      "nullable" : true,
+      "oldName" : "LASTNAME",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sqlType" : "string",
+      "unique" : false
+    }, {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
+      "fieldName" : "phonenumber",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "javaType" : "string",
+      "length" : 255,
+      "name" : "PHONENUMBER",
+      "nullable" : true,
+      "oldName" : "PHONENUMBER",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sqlType" : "string",
+      "unique" : false
+    }, {
+      "columnValue" : {
+        "type" : "server-defined",
+        "insertable" : true,
+        "updatable" : false,
+        "variableType" : "DATE_TIME"
+      },
+      "fieldName" : "dateadded",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "javaType" : "datetime",
+      "length" : 0,
+      "name" : "DATEADDED",
+      "nullable" : true,
+      "oldName" : "DATEADDED",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sqlType" : "datetime",
+      "unique" : false
+    }, {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
+      "fieldName" : "source",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "javaType" : "string",
+      "length" : 255,
+      "name" : "SOURCE",
+      "nullable" : true,
+      "oldName" : "SOURCE",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sqlType" : "string",
+      "unique" : false
+    } ],
+    "constraints" : [ ],
+    "entityName" : "Candidates",
+    "fullyQualifiedName" : "com.hr_scaffold.hr.Candidates",
+    "name" : "Candidates",
+    "oldName" : "Candidates",
+    "primaryKey" : {
+      "columns" : [ "ID" ],
+      "composite" : false,
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      },
+      "name" : "PRIMARY",
+      "virtual" : false
+    },
+    "relations" : [ {
+      "cardinality" : "OneToMany",
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fieldName" : "interviewses",
+      "mappings" : [ {
+        "sourceColumn" : "ID",
+        "targetColumn" : "CANDIDATE"
+      } ],
+      "name" : "FK_Candidates_TO_InterviICdeH",
+      "primary" : false,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "Candidates",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "Interviews",
+      "virtual" : false
+    } ],
+    "schema" : null,
+    "type" : "TABLE"
+  }, {
+    "catalog" : "HR",
+    "columns" : [ {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
       "fieldName" : "depid",
       "foreignKey" : false,
       "generatorType" : "identity",
@@ -551,23 +739,6 @@
       "cardinality" : "ManyToOne",
       "columnsUniqueKey" : false,
       "composite" : false,
-      "fieldName" : "regions",
-      "mappings" : [ {
-        "sourceColumn" : "REGION",
-        "targetColumn" : "REGIONID"
-      } ],
-      "name" : "FK_Regions_TO_Employees_PYfmc",
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "Employees",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "Regions",
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "columnsUniqueKey" : false,
-      "composite" : false,
       "fieldName" : "departmentByDepartment",
       "mappings" : [ {
         "sourceColumn" : "DEPARTMENT",
@@ -585,6 +756,23 @@
       "cardinality" : "ManyToOne",
       "columnsUniqueKey" : false,
       "composite" : false,
+      "fieldName" : "regions",
+      "mappings" : [ {
+        "sourceColumn" : "REGION",
+        "targetColumn" : "REGIONID"
+      } ],
+      "name" : "FK_Regions_TO_Employees_PYfmc",
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "Employees",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "Regions",
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "columnsUniqueKey" : false,
+      "composite" : false,
       "fieldName" : "employeeStatus",
       "mappings" : [ {
         "sourceColumn" : "STATUS",
@@ -597,6 +785,119 @@
       "sourceTable" : "Employees",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "EmployeeStatus",
+      "virtual" : false
+    } ],
+    "schema" : null,
+    "type" : "TABLE"
+  }, {
+    "catalog" : "HR",
+    "columns" : [ {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
+      "fieldName" : "id",
+      "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "ID",
+      "nullable" : false,
+      "oldName" : "ID",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : true,
+      "partOfUniqueKey" : true,
+      "precision" : 10,
+      "primaryKey" : true,
+      "scale" : 0,
+      "sqlType" : "number",
+      "unique" : true
+    }, {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
+      "fieldName" : "date",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "javaType" : "datetime",
+      "length" : 0,
+      "name" : "DATE",
+      "nullable" : true,
+      "oldName" : "DATE",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "precision" : 0,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sqlType" : "datetime",
+      "unique" : false
+    }, {
+      "columnValue" : {
+        "type" : "user-defined",
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : ""
+      },
+      "fieldName" : "candidate",
+      "foreignKey" : true,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "CANDIDATE",
+      "nullable" : true,
+      "oldName" : "CANDIDATE",
+      "partOfAnyRelation" : true,
+      "partOfForeignKey" : true,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "precision" : 10,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sqlType" : "number",
+      "unique" : false
+    } ],
+    "constraints" : [ ],
+    "entityName" : "Interviews",
+    "fullyQualifiedName" : "com.hr_scaffold.hr.Interviews",
+    "name" : "Interviews",
+    "oldName" : "Interviews",
+    "primaryKey" : {
+      "columns" : [ "ID" ],
+      "composite" : false,
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null
+      },
+      "name" : "PRIMARY",
+      "virtual" : false
+    },
+    "relations" : [ {
+      "cardinality" : "ManyToOne",
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fieldName" : "candidates",
+      "mappings" : [ {
+        "sourceColumn" : "CANDIDATE",
+        "targetColumn" : "ID"
+      } ],
+      "name" : "FK_Candidates_TO_InterviICdeH",
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "Interviews",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "Candidates",
       "virtual" : false
     } ],
     "schema" : null,

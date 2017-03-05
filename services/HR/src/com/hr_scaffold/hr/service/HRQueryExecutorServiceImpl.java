@@ -103,6 +103,26 @@ public class HRQueryExecutorServiceImpl implements HRQueryExecutorService {
         return queryExecutor.exportNamedQueryData("EmployeesByRegion", params, exportType, EmployeesByRegionResponse.class, pageable);
     }
 
+    @Transactional(readOnly = true, value = "HRTransactionManager")
+    @Override
+    public Page<GetEmployeesByStatusResponse> executeGetEmployeesByStatus(String status, Pageable pageable) {
+        Map params = new HashMap(1);
+
+        params.put("status", status);
+
+        return queryExecutor.executeNamedQuery("getEmployeesByStatus", params, GetEmployeesByStatusResponse.class, pageable);
+    }
+
+    @Transactional(readOnly = true, value = "HRTransactionManager")
+    @Override
+    public Downloadable exportGetEmployeesByStatus(ExportType exportType, String status, Pageable pageable) {
+        Map params = new HashMap(1);
+
+        params.put("status", status);
+
+        return queryExecutor.exportNamedQueryData("getEmployeesByStatus", params, exportType, GetEmployeesByStatusResponse.class, pageable);
+    }
+
 }
 
 

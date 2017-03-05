@@ -40,8 +40,8 @@ public class Employees implements Serializable {
     private int manager;
     private Integer region;
     private Integer status;
-    private Regions regions;
     private Department departmentByDepartment;
+    private Regions regions;
     private EmployeeStatus employeeStatus;
 
     @Id
@@ -173,20 +173,6 @@ public class Employees implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`REGION`", referencedColumnName = "`REGIONID`", insertable = false, updatable = false)
-    public Regions getRegions() {
-        return this.regions;
-    }
-
-    public void setRegions(Regions regions) {
-        if(regions != null) {
-            this.region = regions.getRegionid();
-        }
-
-        this.regions = regions;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`DEPARTMENT`", referencedColumnName = "`DEPID`", insertable = false, updatable = false)
     public Department getDepartmentByDepartment() {
         return this.departmentByDepartment;
@@ -198,6 +184,20 @@ public class Employees implements Serializable {
         }
 
         this.departmentByDepartment = departmentByDepartment;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`REGION`", referencedColumnName = "`REGIONID`", insertable = false, updatable = false)
+    public Regions getRegions() {
+        return this.regions;
+    }
+
+    public void setRegions(Regions regions) {
+        if(regions != null) {
+            this.region = regions.getRegionid();
+        }
+
+        this.regions = regions;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

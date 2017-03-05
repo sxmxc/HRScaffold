@@ -1,0 +1,75 @@
+<wm-partial data-ng-controller="ScreeningWizardDialogPageController" name="partial1">
+    <wm-wizard stepstyle="justified" name="wizard1">
+        <wm-wizardstep name="wizardstep1" title="Candidate Info" on-next="Variables.HR_CreateCandidate.createRecord()">
+            <wm-form errormessage="" captionposition="top" title="New Candidate" enctype="application/x-www-form-urlencoded" method="post" dataset="bind:Variables.HRCreateCandidates.dataSet" captionalign="left" name="form2">
+                <wm-layoutgrid columns="2" name="layoutgrid4">
+                    <wm-gridrow name="gridrow7">
+                        <wm-composite name="composite2">
+                            <wm-label class="h4 control-label" caption="Candidates Details" name="label6"></wm-label>
+                        </wm-composite>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow8">
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn11">
+                            <wm-form-field name="Candidates_firstname" readonly="false" displayname="Firstname" key="Candidates.firstname" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn12">
+                            <wm-form-field name="Candidates_lastname" readonly="false" displayname="Lastname" key="Candidates.lastname" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow9">
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn13">
+                            <wm-form-field name="Candidates_phonenumber" readonly="false" displayname="Phonenumber" key="Candidates.phonenumber" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="6" name="gridcolumn14">
+                            <wm-form-field name="Candidates_source" readonly="false" displayname="Source" key="Candidates.source" type="string" show="true" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+            </wm-form>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep2" title="Screening">
+            <wm-layoutgrid name="layoutgrid2">
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn5">
+                        <wm-panel subheading="subheading" iconclass="wi wi-account-circle" autoclose="outsideClick" name="panel1">
+                            <wm-panel-footer name="panel_footer1">
+                                <wm-label padding="unset 0.5em" class="text-muted" caption="Addition Info" name="label4"></wm-label>
+                            </wm-panel-footer>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6">
+                        <wm-panel subheading="subheading" iconclass="wi wi-account-circle" autoclose="outsideClick" name="panel2">
+                            <wm-panel-footer name="panel_footer2">
+                                <wm-label padding="unset 0.5em" class="text-muted" caption="Addition Info" name="label5"></wm-label>
+                            </wm-panel-footer>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn7"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn8"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-wizardstep>
+        <wm-wizardstep name="wizardstep3" title="Schedule Interview">
+            <wm-liveform novalidate="false" errormessage="" title="Interviews Info" iconclass="wi wi-edit" defaultmode="Edit" dataset="bind:Variables.HR_Interviews.dataSet" captionalign="left" captionposition="top" name="liveform1">
+                <wm-layoutgrid columns="1" name="layoutgrid3">
+                    <wm-gridrow name="gridrow6">
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn9">
+                            <wm-form-field name="date" displayname="Date" show="true" primary-key="false" generator="assigned" key="date" type="datetime" readonly="false" required="false" widget="datetime" placeholder="Select date time" outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow7_1">
+                        <wm-gridcolumn columnwidth="12" name="gridcolumn10">
+                            <wm-form-field name="candidates" displayname="Candidates" show="true" primary-key="false" generator="assigned" key="candidates" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                            displayexpression="firstname + ' ' + lastname"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="wi wi-refresh" title="Reset" action="reset()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+            </wm-liveform>
+        </wm-wizardstep>
+    </wm-wizard>
+</wm-partial>
