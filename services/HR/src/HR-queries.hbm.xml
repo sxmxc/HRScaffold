@@ -2,6 +2,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <sql-query name="countInRegion">
+        <![CDATA[
+        select count(*) from Employees where region = :region
+        ]]>
+    <query-param name="region" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="countInRegion__count">
+        <![CDATA[
+        select count(*) from (select count(*) from Employees where region = :region) wmTempTable
+        ]]>
+    <query-param name="region" type="java.lang.Integer"/>
+    </sql-query>
+
     <sql-query name="EmployeesByDepartment">
         <![CDATA[
         select * from Employees where department = :deptid

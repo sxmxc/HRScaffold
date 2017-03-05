@@ -114,6 +114,52 @@
           "scale" : 0
         } ]
       }, {
+        "fieldName" : "employeeStatus",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "STATUS",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "",
+        "relatedTableName" : "EmployeeStatus",
+        "relatedEntityName" : "EmployeeStatus",
+        "relatedColumnName" : "status",
+        "relatedFieldName" : "employeeStatus.statusid",
+        "isList" : false,
+        "targetTable" : "EmployeeStatus",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "statusid",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "STATUSID",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "name",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "NAME",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        } ]
+      }, {
         "fieldName" : "eid",
         "type" : "integer",
         "fullyQualifiedType" : "integer",
@@ -263,7 +309,7 @@
     },
     "tableName" : "Employees",
     "tableType" : "TABLE",
-    "properties" : [ "regions", "departmentByDepartment" ],
+    "properties" : [ "regions", "departmentByDepartment", "employeeStatus" ],
     "relatedTables" : [ {
       "columnName" : "regions",
       "relationName" : "regions",
@@ -275,6 +321,12 @@
       "relationName" : "departmentByDepartment",
       "type" : "Department",
       "watchOn" : "HRDepartmentData",
+      "package" : "com.hr_scaffold.hr.Employees"
+    }, {
+      "columnName" : "employeeStatus",
+      "relationName" : "employeeStatus",
+      "type" : "EmployeeStatus",
+      "watchOn" : "HREmployeeStatusData",
       "package" : "com.hr_scaffold.hr.Employees"
     } ],
     "filterFields" : { },
@@ -440,6 +492,17 @@
     "saveInPhonegap" : false,
     "controller" : "QueryExecution"
   },
+  "goToPage_AdminDashboard" : {
+    "_id" : "wm-goToPage_AdminDashboard-wm.NavigationVariable-1488673720817",
+    "name" : "goToPage_AdminDashboard",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "AdminDashboard",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Departments" : {
     "_id" : "wm-goToPage_Departments-wm.NavigationVariable-1442928054093",
     "name" : "goToPage_Departments",
@@ -517,6 +580,33 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "HR_CountInRegion" : {
+    "_id" : "wm-HR_CountInRegion-wm.ServiceVariable-1488693370628",
+    "name" : "HR_CountInRegion",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "region",
+      "value" : "bind:Variables.getCurrentUserRegion.dataSet.region",
+      "type" : "integer"
+    } ],
+    "type" : "com.hr_scaffold.hr.models.query.CountInRegionResponse",
+    "service" : "HR",
+    "operation" : "executeCountInRegion",
+    "operationId" : "QueryExecutionController_executeCountInRegion",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
   "HR_DepartmentCount" : {
     "_id" : "wm-HrdbDepartmentCount-wm.ServiceVariable-1442929307998",
     "name" : "HR_DepartmentCount",
@@ -580,7 +670,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "regionid",
-      "value" : "bind:Variables.loggedInUser.dataSet.region",
+      "value" : "bind:Variables.getCurrentUserRegion.dataSet.region",
       "type" : "integer"
     } ],
     "type" : "com.hr_scaffold.hr.models.query.EmployeesByRegionResponse",
@@ -627,6 +717,69 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "Regions"
+  },
+  "HR_RegionsData" : {
+    "_id" : "wm-HRRegionsData-wm.LiveVariable-1488656241225",
+    "name" : "HR_RegionsData",
+    "owner" : "App",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "Regions",
+    "isList" : true,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "HR",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "orderBy" : "regionid asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "regionid",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "REGIONID",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "name",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "NAME",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      } ],
+      "entityName" : "Regions",
+      "fullyQualifiedName" : "com.hr_scaffold.hr.Regions",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "regionid" ]
+    },
+    "isDefault" : true,
+    "bindCount" : 3,
+    "tableName" : "Regions",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterFields" : { },
+    "package" : "com.hr_scaffold.hr.Regions"
   },
   "HRDepartmentData" : {
     "_id" : "wm-HrdbDepartmentData-wm.LiveVariable-1442927497415",
@@ -683,7 +836,7 @@
       "primaryFields" : [ "depid" ]
     },
     "isDefault" : true,
-    "bindCount" : 3,
+    "bindCount" : 5,
     "tableName" : "Department",
     "tableType" : "TABLE",
     "dbSystem" : "HSQLDB",
@@ -697,11 +850,7 @@
     "name" : "HREmployeeList",
     "owner" : "App",
     "category" : "wm.LiveVariable",
-    "dataBinding" : [ {
-      "target" : "region",
-      "value" : "bind:Variables.loggedInUser.dataSet.region",
-      "type" : "number"
-    } ],
+    "dataBinding" : [ ],
     "operation" : "read",
     "dataSet" : [ ],
     "type" : "Employees",
@@ -716,7 +865,7 @@
     "liveSource" : "HR",
     "ignoreCase" : true,
     "matchMode" : "start",
-    "orderBy" : "eid asc",
+    "orderBy" : "lastname desc",
     "propertiesMap" : {
       "columns" : [ {
         "fieldName" : "regions",
@@ -787,6 +936,52 @@
           "type" : "integer",
           "fullyQualifiedType" : "integer",
           "columnName" : "DEPID",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "name",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "NAME",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "employeeStatus",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "STATUS",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "",
+        "relatedTableName" : "EmployeeStatus",
+        "relatedEntityName" : "EmployeeStatus",
+        "relatedColumnName" : "status",
+        "relatedFieldName" : "employeeStatus.statusid",
+        "isList" : false,
+        "targetTable" : "EmployeeStatus",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "statusid",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "STATUSID",
           "isPrimaryKey" : true,
           "notNull" : true,
           "length" : 0,
@@ -957,10 +1152,10 @@
       "tableType" : "TABLE",
       "primaryFields" : [ "eid" ]
     },
-    "bindCount" : 1,
+    "bindCount" : 11,
     "tableName" : "Employees",
     "tableType" : "TABLE",
-    "properties" : [ "regions", "departmentByDepartment" ],
+    "properties" : [ "regions", "departmentByDepartment", "employeeStatus" ],
     "relatedTables" : [ {
       "columnName" : "regions",
       "relationName" : "regions",
@@ -972,6 +1167,12 @@
       "relationName" : "departmentByDepartment",
       "type" : "Department",
       "watchOn" : "HRDepartmentData",
+      "package" : "com.hr_scaffold.hr.Employees"
+    }, {
+      "columnName" : "employeeStatus",
+      "relationName" : "employeeStatus",
+      "type" : "EmployeeStatus",
+      "watchOn" : "HREmployeeStatusData",
       "package" : "com.hr_scaffold.hr.Employees"
     } ],
     "filterFields" : { },
@@ -1104,6 +1305,7 @@
       "primaryFields" : [ "userid" ]
     },
     "isDefault" : true,
+    "bindCount" : 4,
     "tableName" : "Users",
     "tableType" : "TABLE",
     "dbSystem" : "HSQLDB",

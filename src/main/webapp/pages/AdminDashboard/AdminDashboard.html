@@ -1,0 +1,183 @@
+<wm-page data-ng-controller="AdminDashboardPageController" pagetitle="AdminDashboard" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-tabs name="tabs1">
+                <wm-tabpane name="tabpane1" title="Settings" paneicon="wi wi-gear">
+                    <wm-accordion name="accordion1">
+                        <wm-accordionpane name="accordionpane1" title="Departments">
+                            <wm-livegrid formlayout="dialog" name="livegrid1">
+                                <wm-grid gridfirstrowselect="true" editmode="dialog" title="Department List" dataset="bind:Variables.HRDepartmentData.dataSet" navigation="Pager" name="grid1">
+                                    <wm-grid-column binding="name" caption="Name" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                                    <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" sortable="false" searchable="false" show="true"></wm-grid-column>
+                                    <wm-grid-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-grid-action>
+                                    <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                                    <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                                </wm-grid>
+                                <wm-liveform novalidate="false" errormessage="" title="Department Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.HRDepartmentData.dataSet" captionalign="left" captionposition="top" name="liveform1">
+                                    <wm-layoutgrid columns="1" name="layoutgrid1">
+                                        <wm-gridrow name="gridrow1">
+                                            <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                                                <wm-form-field name="name" displayname="Name" required="false" show="true" generator="assigned" primary-key="false" key="name" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                                widget="text"></wm-form-field>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                    <wm-form-field name="depid" displayname="Depid" required="true" show="false" generator="identity" primary-key="true" key="depid" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                                    <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                                </wm-liveform>
+                            </wm-livegrid>
+                        </wm-accordionpane>
+                        <wm-accordionpane name="accordionpane2" title="Regions">
+                            <wm-livegrid formlayout="dialog" name="livegrid3">
+                                <wm-grid gridfirstrowselect="true" editmode="dialog" title="Regions List" dataset="bind:Variables.HR_RegionsData.dataSet" navigation="Pager" name="grid3">
+                                    <wm-grid-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                                    <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                                </wm-grid>
+                                <wm-liveform novalidate="false" errormessage="" title="Regions Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.HR_RegionsData.dataSet" captionalign="left" captionposition="top" name="liveform3">
+                                    <wm-layoutgrid columns="1" name="layoutgrid3">
+                                        <wm-gridrow name="gridrow3"></wm-gridrow>
+                                    </wm-layoutgrid>
+                                    <wm-form-field name="regionid" displayname="Regionid" required="true" show="false" generator="identity" primary-key="true" key="regionid" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                    widget="number"></wm-form-field>
+                                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                                    <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                                </wm-liveform>
+                            </wm-livegrid>
+                        </wm-accordionpane>
+                        <wm-accordionpane name="accordionpane3" title="Employee Statuses">
+                            <wm-livegrid formlayout="dialog" name="livegrid2">
+                                <wm-grid gridfirstrowselect="true" editmode="dialog" title="Employeestatus List" dataset="bind:Variables.HREmployeeStatusData.dataSet" navigation="Pager" name="grid2">
+                                    <wm-grid-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                                    <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                                </wm-grid>
+                                <wm-liveform novalidate="false" errormessage="" title="Employeestatus Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.HREmployeeStatusData.dataSet" captionalign="left" captionposition="top" name="liveform2">
+                                    <wm-layoutgrid columns="1" name="layoutgrid2">
+                                        <wm-gridrow name="gridrow2">
+                                            <wm-gridcolumn columnwidth="12" name="gridcolumn2">
+                                                <wm-form-field name="name" displayname="Name" required="false" show="true" generator="assigned" primary-key="false" key="name" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                                widget="text"></wm-form-field>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                    <wm-form-field name="statusid" displayname="Statusid" required="true" show="false" generator="identity" primary-key="true" key="statusid" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                    widget="number"></wm-form-field>
+                                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                                    <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                                </wm-liveform>
+                            </wm-livegrid>
+                        </wm-accordionpane>
+                    </wm-accordion>
+                </wm-tabpane>
+                <wm-tabpane name="tabpane2" title="Users" paneicon="wi wi-group">
+                    <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.HRUserData.dataSet" navigation="On-Demand" name="livelist1" iconclass="">
+                        <wm-listtemplate layout="inline" name="listtemplate1">
+                            <wm-container class="media-left" name="container1">
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture>
+                            </wm-container>
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container2">
+                                <wm-label name="Name" class="p media-heading" caption="bind:Variables.HRUserData.dataSet.username" fontsize="1.143" fontunit="em"></wm-label>
+                                <wm-label name="JobTitle" caption="bind:Variables.HRUserData.dataSet.role" class="p text-muted"></wm-label>
+                            </wm-container>
+                            <wm-container class="media-right media-top" name="container3">
+                                <wm-button class="btn-transparent" iconclass="wi wi-share" fontsize="18" fontunit="pt" name="button1"></wm-button>
+                            </wm-container>
+                        </wm-listtemplate>
+                    </wm-livelist>
+                </wm-tabpane>
+                <wm-tabpane name="tabpane3" title="All Employees">
+                    <wm-livegrid formlayout="dialog" name="livegrid4">
+                        <wm-grid gridfirstrowselect="true" editmode="dialog" title="Employees List" dataset="bind:Variables.HREmployeeList.dataSet" navigation="Basic" name="grid4">
+                            <wm-grid-column binding="eid" caption="Eid" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-grid-column>
+                            <wm-grid-column binding="firstname" caption="Firstname" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="lastname" caption="Lastname" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="street" caption="Street" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="city" caption="City" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="state" caption="State" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="zip" caption="Zip" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="birthdate" caption="Birthdate" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
+                            <wm-grid-column binding="picurl" caption="Picurl" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="jobtitle" caption="Jobtitle" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="regions.name" caption="Regions Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" related-entity-name="Regions" readonly="true"></wm-grid-column>
+                            <wm-grid-column binding="departmentByDepartment.name" caption="Department Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" related-entity-name="Department" readonly="true"></wm-grid-column>
+                            <wm-grid-column binding="employeeStatus.name" caption="Status Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" related-entity-name="EmployeeStatus" readonly="true"></wm-grid-column>
+                            <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                            <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                            <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                        </wm-grid>
+                        <wm-liveform novalidate="false" errormessage="" title="Employees Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.HREmployeeList.dataSet" captionalign="left" captionposition="top" name="liveform4">
+                            <wm-layoutgrid columns="3" name="layoutgrid4">
+                                <wm-gridrow name="gridrow4">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn3">
+                                        <wm-form-field name="firstname" displayname="Firstname" show="true" primary-key="false" generator="assigned" key="firstname" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
+                                        placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn4">
+                                        <wm-form-field name="lastname" displayname="Lastname" show="true" primary-key="false" generator="assigned" key="lastname" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
+                                        placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                                        <wm-form-field name="street" displayname="Street" show="true" primary-key="false" generator="assigned" key="street" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow5">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6">
+                                        <wm-form-field name="city" displayname="City" show="true" primary-key="false" generator="assigned" key="city" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn7">
+                                        <wm-form-field name="state" displayname="State" show="true" primary-key="false" generator="assigned" key="state" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn8">
+                                        <wm-form-field name="zip" displayname="Zip" show="true" primary-key="false" generator="assigned" key="zip" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow6">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn9">
+                                        <wm-form-field name="birthdate" displayname="Birthdate" show="true" primary-key="false" generator="assigned" key="birthdate" type="date" readonly="false" required="false" widget="date" placeholder="Select date" outputformat="yyyy-MM-dd"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn10">
+                                        <wm-form-field name="picurl" displayname="Picurl" show="true" primary-key="false" generator="assigned" key="picurl" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn11">
+                                        <wm-form-field name="jobtitle" displayname="Jobtitle" show="true" primary-key="false" generator="assigned" key="jobtitle" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
+                                        placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow7">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn12">
+                                        <wm-form-field name="manager" displayname="Manager" show="true" primary-key="false" generator="assigned" key="manager" type="integer" readonly="false" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn13">
+                                        <wm-form-field name="regions" displayname="Regions" show="true" primary-key="false" generator="assigned" key="regions" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                        displayexpression="name"></wm-form-field>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn14">
+                                        <wm-form-field name="departmentByDepartment" displayname="Department By Department" show="true" primary-key="false" generator="assigned" key="departmentByDepartment" type="list" is-related="true" readonly="false" required="false"
+                                        widget="select" placeholder="Select value" displayexpression="name"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow8">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn15">
+                                        <wm-form-field name="employeeStatus" displayname="Employee Status" show="true" primary-key="false" generator="assigned" key="employeeStatus" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                        placeholder="Select value" displayexpression="name"></wm-form-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-form-field name="eid" displayname="Eid" show="false" primary-key="true" generator="identity" key="eid" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                            <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                            <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                        </wm-liveform>
+                    </wm-livegrid>
+                </wm-tabpane>
+            </wm-tabs>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

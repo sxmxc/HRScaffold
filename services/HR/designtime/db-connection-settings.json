@@ -23,6 +23,9 @@
   }, {
     "table" : "Users",
     "schema" : null
+  }, {
+    "table" : "EmployeeStatus",
+    "schema" : null
   } ],
   "schemaFilter" : [ ],
   "impersonateUser" : false,

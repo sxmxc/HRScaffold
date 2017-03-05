@@ -32,7 +32,7 @@
                             <wm-layoutgrid name="layoutgrid3">
                                 <wm-gridrow name="gridrow7">
                                     <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn20" class="col-xs-4">
-                                        <wm-icon iconsize="3.5em" name="icon2" iconclass="fa fa-money"></wm-icon>
+                                        <wm-icon iconsize="3.5em" name="icon2" iconclass="fa fa-group"></wm-icon>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn21" class="col-xs-8" padding="unset unset unset .5em">
                                         <wm-label width="100%" caption="DEPARTMENTS" class="text-uppercase" name="label5" fontsize="14"></wm-label>
@@ -65,8 +65,8 @@
                                         <wm-icon iconsize="3.5em" name="icon4" iconclass="glyphicon glyphicon-ok"></wm-icon>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn25" class="col-xs-8" padding="unset unset unset .5em">
-                                        <wm-label width="100%" caption="MESSAGES" class="text-uppercase" name="label9"></wm-label>
-                                        <wm-label width="100%" caption="221" class="h3" name="label10" fontsize="14" color="#ffffff" margin="0px unset"></wm-label>
+                                        <wm-label width="100%" caption="In Region" class="text-uppercase" name="label9"></wm-label>
+                                        <wm-label width="100%" caption="bind:Variables.HR_CountInRegion.dataSet[$i].count___" class="h3" name="label10" fontsize="14" color="#ffffff" margin="0px unset"></wm-label>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
@@ -76,29 +76,51 @@
                 <wm-gridrow name="gridrow3" paddingunit="em">
                     <wm-gridcolumn columnwidth="6" name="gridcolumn7" padding="1em .5em">
                         <wm-panel collapsible="true" showheader="true" name="panel2" title="Employee Breakdown" height="24em" badgetype="default" enablefullscreen="true">
-                            <wm-chart showcontrols="false" ynumberformat="Exponential" xnumberformat="Decimal Digits" dataset="bind:Variables.HREmployeeData.dataSet.data[$i].departmentByDepartmentVariables.HRDepartmentData.dataSet" type="Pie" name="chart1"
-                            offsetright="0" tooltips="true" showlegend="true" xaxislabel="Departments" yaxislabel="Revenue" yaxislabeldistance="12" theme="Retro" legendposition="Top" legendtype="classic" width="100%" offsetleft="30" title=""></wm-chart>
+                            <wm-chart showcontrols="false" ynumberformat="Exponential" xnumberformat="Decimal Digits" dataset="bind:Variables.HREmployeeList.dataSet" type="Pie" name="chart1" offsetright="0" tooltips="true" showlegend="true" xaxislabel="Departments"
+                            yaxislabel="Revenue" yaxislabeldistance="12" theme="Retro" legendposition="Top" legendtype="classic" width="100%" offsetleft="30" title="" groupby="departmentByDepartment.name" aggregation="count" aggregationcolumn="eid" xaxisdatakey="departmentByDepartment.name"
+                            yaxisdatakey="eid"></wm-chart>
                         </wm-panel>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="6" name="gridcolumn8" padding="1em .5em">
                         <wm-tabs name="tabs1">
-                            <wm-tabpane name="tabpane2" heading="Employees" padding="0px">
-                                <wm-livelist dataset="bind:Variables.HR_EmployeesByRegion.dataSet" listclass="list-group" itemclass="list-group-item" name="livelist2" itemsperrow="2">
-                                    <wm-listtemplate layout="gridlayout" name="listtemplate2" height="95px">
-                                        <wm-layoutgrid name="layoutgrid8" class="gridlayout">
-                                            <wm-gridrow name="gridrow10">
-                                                <wm-gridcolumn name="gridcolumn21_1" columnwidth="5" data-template-ctr="true">
-                                                    <wm-picture picturesource="bind:Variables.HREmployeeData.dataSet.data[$i].picurl" height="64" name="picture3" class="picture" shape="rounded" width="64"></wm-picture>
-                                                </wm-gridcolumn>
-                                                <wm-gridcolumn name="gridcolumn22_1" columnwidth="7" data-template-ctr="true">
-                                                    <wm-label fontsize="14" name="label12" width="100%" caption="bind:Variables.HREmployeeData.dataSet.data[$i].firstname+' '+Variables.HREmployeeData.dataSet.data[$i].lastname"></wm-label>
-                                                    <wm-label name="label13" width="100%" caption="bind:Variables.HREmployeeData.dataSet.data[$i].department.name"></wm-label>
-                                                </wm-gridcolumn>
-                                            </wm-gridrow>
-                                        </wm-layoutgrid>
-                                    </wm-listtemplate>
-                                </wm-livelist>
+                            <wm-tabpane name="tabpane2" heading="Employees" padding="0px" title="Overview">
+                                <wm-chart type="Pie" title="" height="250px" iconclass="" name="chart2" theme="Retro" dataset="bind:Variables.HREmployeeList.dataSet" xaxisdatakey="employeeStatus.name" yaxisdatakey="eid" aggregation="count" aggregationcolumn="eid"
+                                groupby="employeeStatus.name"></wm-chart>
                             </wm-tabpane>
+                            <wm-tabpane name="tabpane2_1" title="Active">
+                                <wm-layoutgrid name="layoutgrid7">
+                                    <wm-gridrow name="gridrow9_1">
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                            <wm-label padding="unset 0.5em" name="label12" caption="bind:&quot;Current: &quot; + Variables.HR_CountInRegion.dataSet[$i].count___"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn20_1">
+                                            <wm-label padding="unset 0.5em" name="label13" caption="Goal: 40"></wm-label>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow10">
+                                        <wm-gridcolumn columnwidth="12" name="gridcolumn21_1">
+                                            <wm-progress datavalue="bind:Variables.HR_CountInRegion.dataSet[$i].count___" name="progress1" maxvalue="40" type="default" dataset="bind:Variables.HR_CountInRegion.dataSet" displayformat="9%"></wm-progress>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow11">
+                                        <wm-gridcolumn columnwidth="12" name="gridcolumn23_1">
+                                            <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.HREmployeeList.dataSet" navigation="Pager"
+                                            name="livelist2">
+                                                <wm-listtemplate layout="inline" name="listtemplate2">
+                                                    <wm-container class="media-left" name="container1">
+                                                        <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" picturesource="bind:Variables.HREmployeeList.dataSet.picurl" class="media-object"></wm-picture>
+                                                    </wm-container>
+                                                    <wm-container class="media-body" name="container2">
+                                                        <wm-label class="p media-heading" name="Name" caption="bind:Variables.HREmployeeList.dataSet.firstname" fontunit="em" padding="unset unset unset 1.25em"></wm-label>
+                                                    </wm-container>
+                                                </wm-listtemplate>
+                                            </wm-livelist>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                            </wm-tabpane>
+                            <wm-tabpane name="tabpane3" title="Training"></wm-tabpane>
+                            <wm-tabpane name="tabpane4" title="Pipeline"></wm-tabpane>
                         </wm-tabs>
                     </wm-gridcolumn>
                 </wm-gridrow>

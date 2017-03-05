@@ -35,6 +35,26 @@ public class HRQueryExecutorServiceImpl implements HRQueryExecutorService {
 
     @Transactional(readOnly = true, value = "HRTransactionManager")
     @Override
+    public Page<CountInRegionResponse> executeCountInRegion(Integer region, Pageable pageable) {
+        Map params = new HashMap(1);
+
+        params.put("region", region);
+
+        return queryExecutor.executeNamedQuery("countInRegion", params, CountInRegionResponse.class, pageable);
+    }
+
+    @Transactional(readOnly = true, value = "HRTransactionManager")
+    @Override
+    public Downloadable exportCountInRegion(ExportType exportType, Integer region, Pageable pageable) {
+        Map params = new HashMap(1);
+
+        params.put("region", region);
+
+        return queryExecutor.exportNamedQueryData("countInRegion", params, exportType, CountInRegionResponse.class, pageable);
+    }
+
+    @Transactional(readOnly = true, value = "HRTransactionManager")
+    @Override
     public Page<EmployeesByDepartmentResponse> executeEmployeesByDepartment(String deptid, Pageable pageable) {
         Map params = new HashMap(1);
 

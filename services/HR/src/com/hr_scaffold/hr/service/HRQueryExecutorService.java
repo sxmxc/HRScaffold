@@ -17,6 +17,10 @@ import com.hr_scaffold.hr.models.query.*;
 
 public interface HRQueryExecutorService {
 
+    Page<CountInRegionResponse> executeCountInRegion(Integer region, Pageable pageable);
+
+    Downloadable exportCountInRegion(ExportType exportType, Integer region, Pageable pageable);
+
     Page<EmployeesByDepartmentResponse> executeEmployeesByDepartment(String deptid, Pageable pageable);
 
     Downloadable exportEmployeesByDepartment(ExportType exportType, String deptid, Pageable pageable);

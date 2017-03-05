@@ -116,6 +116,52 @@
           "scale" : 0
         } ]
       }, {
+        "fieldName" : "employeeStatus",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "STATUS",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "",
+        "relatedTableName" : "EmployeeStatus",
+        "relatedEntityName" : "EmployeeStatus",
+        "relatedColumnName" : "status",
+        "relatedFieldName" : "employeeStatus.statusid",
+        "isList" : false,
+        "targetTable" : "EmployeeStatus",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "statusid",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "STATUSID",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "name",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "NAME",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        } ]
+      }, {
         "fieldName" : "eid",
         "type" : "integer",
         "fullyQualifiedType" : "integer",
@@ -267,7 +313,7 @@
     "bindCount" : 7,
     "tableName" : "Employees",
     "tableType" : "TABLE",
-    "properties" : [ "regions", "departmentByDepartment" ],
+    "properties" : [ "regions", "departmentByDepartment", "employeeStatus" ],
     "relatedTables" : [ {
       "columnName" : "regions",
       "relationName" : "regions",
@@ -280,6 +326,12 @@
       "type" : "Department",
       "watchOn" : "HRDepartmentData",
       "package" : "com.hr_scaffold.hr.Employees"
+    }, {
+      "columnName" : "employeeStatus",
+      "relationName" : "employeeStatus",
+      "type" : "EmployeeStatus",
+      "watchOn" : "HREmployeeStatusData",
+      "package" : "com.hr_scaffold.hr.Employees"
     } ],
     "filterFields" : { },
     "package" : "com.hr_scaffold.hr.Employees"
@@ -289,11 +341,7 @@
     "name" : "HREmployeesData1",
     "owner" : "Page",
     "category" : "wm.LiveVariable",
-    "dataBinding" : [ {
-      "target" : "region",
-      "value" : "bind:Variables.getCurrentUserRegion.dataSet.region",
-      "type" : "number"
-    } ],
+    "dataBinding" : [ ],
     "operation" : "read",
     "dataSet" : [ ],
     "type" : "Employees",
@@ -379,6 +427,52 @@
           "type" : "integer",
           "fullyQualifiedType" : "integer",
           "columnName" : "DEPID",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "name",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "NAME",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "employeeStatus",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "STATUS",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "",
+        "relatedTableName" : "EmployeeStatus",
+        "relatedEntityName" : "EmployeeStatus",
+        "relatedColumnName" : "status",
+        "relatedFieldName" : "employeeStatus.statusid",
+        "isList" : false,
+        "targetTable" : "EmployeeStatus",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "statusid",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "STATUSID",
           "isPrimaryKey" : true,
           "notNull" : true,
           "length" : 0,
@@ -550,10 +644,10 @@
       "primaryFields" : [ "eid" ]
     },
     "isDefault" : true,
-    "bindCount" : 2,
+    "bindCount" : 1,
     "tableName" : "Employees",
     "tableType" : "TABLE",
-    "properties" : [ "regions", "departmentByDepartment" ],
+    "properties" : [ "regions", "departmentByDepartment", "employeeStatus" ],
     "relatedTables" : [ {
       "columnName" : "regions",
       "relationName" : "regions",
@@ -565,6 +659,12 @@
       "relationName" : "departmentByDepartment",
       "type" : "Department",
       "watchOn" : "HRDepartmentData",
+      "package" : "com.hr_scaffold.hr.Employees"
+    }, {
+      "columnName" : "employeeStatus",
+      "relationName" : "employeeStatus",
+      "type" : "EmployeeStatus",
+      "watchOn" : "HREmployeeStatusData",
       "package" : "com.hr_scaffold.hr.Employees"
     } ],
     "filterFields" : { },

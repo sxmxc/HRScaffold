@@ -7,34 +7,33 @@ package com.hr_scaffold.hr.models.query;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.sql.Date;
 import java.util.Objects;
 
 import com.wavemaker.runtime.data.annotations.ColumnAlias;
 
-public class GetRegionResponse implements Serializable {
+public class CountInRegionResponse implements Serializable {
 
-    @ColumnAlias("region")
-    private Integer region;
+    @ColumnAlias("count(*)")
+    private BigInteger count___;
 
-    public Integer getRegion() {
-        return this.region;
+    public BigInteger getCount___() {
+        return this.count___;
     }
 
-    public void setRegion(Integer region) {
-        this.region = region;
+    public void setCount___(BigInteger count___) {
+        this.count___ = count___;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof GetRegionResponse)) return false;
-        final GetRegionResponse getRegionResponse = (GetRegionResponse) o;
-        return Objects.equals(getRegion(), getRegionResponse.getRegion());
+        if (!(o instanceof CountInRegionResponse)) return false;
+        final CountInRegionResponse countInRegionResponse = (CountInRegionResponse) o;
+        return Objects.equals(getCount___(), countInRegionResponse.getCount___());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRegion());
+        return Objects.hash(getCount___());
     }
 }

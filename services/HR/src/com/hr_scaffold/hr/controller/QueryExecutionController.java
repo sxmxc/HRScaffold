@@ -44,6 +44,25 @@ public class QueryExecutionController {
     @Autowired
     private HRQueryExecutorService queryService;
 
+    @RequestMapping(value = "/queries/countInRegion", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Counts in employees in logged in users region")
+    public Page<CountInRegionResponse> executeCountInRegion(@RequestParam(value = "region") Integer region, Pageable pageable) {
+        LOGGER.debug("Executing named query: countInRegion");
+        Page<CountInRegionResponse> _result = queryService.executeCountInRegion(region, pageable);
+        LOGGER.debug("got the result for named query: countInRegion, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file for query countInRegion")
+    @RequestMapping(value = "/queries/countInRegion/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Downloadable exportCountInRegion(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "region") Integer region, Pageable pageable) {
+        LOGGER.debug("Exporting named query: countInRegion");
+
+        return queryService.exportCountInRegion(exportType, region, pageable);
+    }
+
     @RequestMapping(value = "/queries/EmployeesByDepartment", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns Employees given specific department")

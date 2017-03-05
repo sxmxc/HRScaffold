@@ -39,8 +39,10 @@ public class Employees implements Serializable {
     private Integer department;
     private int manager;
     private Integer region;
+    private Integer status;
     private Regions regions;
     private Department departmentByDepartment;
+    private EmployeeStatus employeeStatus;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -161,6 +163,15 @@ public class Employees implements Serializable {
         this.region = region;
     }
 
+    @Column(name = "`STATUS`", nullable = true, scale = 0, precision = 10)
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`REGION`", referencedColumnName = "`REGIONID`", insertable = false, updatable = false)
     public Regions getRegions() {
@@ -187,6 +198,20 @@ public class Employees implements Serializable {
         }
 
         this.departmentByDepartment = departmentByDepartment;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`STATUS`", referencedColumnName = "`STATUSID`", insertable = false, updatable = false)
+    public EmployeeStatus getEmployeeStatus() {
+        return this.employeeStatus;
+    }
+
+    public void setEmployeeStatus(EmployeeStatus employeeStatus) {
+        if(employeeStatus != null) {
+            this.status = employeeStatus.getStatusid();
+        }
+
+        this.employeeStatus = employeeStatus;
     }
 
     @Override

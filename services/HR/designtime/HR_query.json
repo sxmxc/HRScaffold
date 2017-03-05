@@ -291,6 +291,44 @@
       } ]
     }
   },
+  "countInRegion" : {
+    "name" : "countInRegion",
+    "description" : "Counts in employees in logged in users region",
+    "version" : "V2",
+    "queryString" : "select count(*) from Employees where region = :region",
+    "countQueryString" : "select count(*) from (select count(*) from Employees where region = :region) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "region",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "1",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "response" : {
+      "typeRef" : "com.hr_scaffold.hr.models.query.CountInRegionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(*)",
+        "fieldName" : "count___",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "getRegion" : {
     "name" : "getRegion",
     "description" : "Get users region vie username",
