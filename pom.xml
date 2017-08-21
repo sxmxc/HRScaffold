@@ -170,31 +170,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-                <executions>
-                    <execution>
-                        <id>unpack-wmapp-artifact</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/src/main/webapp/wmapp</outputDirectory>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.wavemaker.runtime</groupId>
-                                    <artifactId>wavemaker-app-runtime</artifactId>
-                                    <version>${wavemaker.studio.version}</version>
-                                    <classifier>wmapp</classifier>
-                                    <type>zip</type>
-                </artifactItem>
-              </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            
             <plugin>
                 <groupId>com.wavemaker.app.build</groupId>
                 <artifactId>wavemaker-app-build-maven-plugin</artifactId>
